@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cjrxrcvaaq5wk"]
+
+[ext_resource type="Texture2D" uid="uid://deqvjlv7dnvpb" path="res://cap.png" id="1_atuo1"]
+[ext_resource type="Script" uid="uid://0lic4r4hreay" path="res://cap.gd" id="1_i5wua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wua"]
+size = Vector2(15, 43)
+
+[node name="Capacitor" type="Node2D" unique_id=627079968]
+script = ExtResource("1_i5wua")
+capacitance = null
+voltage = null
+
+[node name="cap" type="StaticBody2D" parent="." unique_id=1692703268]
+
+[node name="sprite" type="Sprite2D" parent="cap" unique_id=1359342124]
+scale = Vector2(0.023375155, 0.025019499)
+texture = ExtResource("1_atuo1")
+
+[node name="Area2D" type="Area2D" parent="cap" unique_id=1775339088]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cap/Area2D" unique_id=1518695251]
+position = Vector2(-3, -2)
+shape = SubResource("RectangleShape2D_i5wua")
+
+[connection signal="body_entered" from="cap/Area2D" to="." method="_on_area_2d_body_entered"]

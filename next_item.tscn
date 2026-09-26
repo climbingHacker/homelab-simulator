@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b7rsc6de5ur02"]
+
+[ext_resource type="Script" uid="uid://d0na07r8q10qp" path="res://next_item.gd" id="1_diqx7"]
+
+[node name="NextItem" type="Control" unique_id=1093843214]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_diqx7")
+
+[node name="Label" type="Label" parent="." unique_id=1929687932]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 59.0
+text = "test"

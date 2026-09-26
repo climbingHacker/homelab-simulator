@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://8rdjyibudr5h" path="res://Player-fw2.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://boyleviomhj7q" path="res://player-bw1.png" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://btl4lad7dbi5n" path="res://Player-bw2.png" id="5_4c57u"]
-[ext_resource type="Texture2D" uid="uid://nbte43uu50yy" path="res://transistor.png" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cjrxrcvaaq5wk" path="res://cap.tscn" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://b7rsc6de5ur02" path="res://next_item.tscn" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://dmdqxialqctn8" path="res://end_label.gd" id="12_dg77c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h2yge"]
 animations = [{
@@ -345,9 +347,6 @@ texture = ExtResource("2_0xm2m")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_h2yge")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_72oj0"]
-size = Vector2(20, 53)
-
 [node name="Node2D" type="Node2D" unique_id=1985691651]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=188082722]
@@ -372,13 +371,22 @@ position = Vector2(67, 48)
 tile_map_data = PackedByteArray("AAD0/wEAAgAHAAUAAAD1/wEAAgAHAAUAAAD2/wEAAgAHAAUAAAD3/wEAAgAHAAUAAAD4/wEAAgAHAAUAAAD5/wEAAgAHAAUAAAD6/wEAAgAHAAUAAAD7/wEAAgAHAAUAAAD8/wIAAgAHAAUAAAD9/wIAAgAHAAUAAAD+/wIAAgAHAAUAAAD//wIAAgAHAAUAAAAAAAIAAgAHAAUAAAABAAIAAgAHAAUAAAACAAIAAgAHAAUAAAADAAIAAgAHAAUAAAAEAAIAAgAHAAUAAAAFAAIAAgAHAAUAAAAGAAIAAgAHAAUAAAAHAAIAAgAHAAUAAAAIAAIAAgAHAAUAAAAJAAIAAgAHAAUAAAAKAAIAAgAHAAUAAAALAAIAAgAHAAUAAAAMAAIAAgAHAAUAAAAMAAEAAgAHAAUAAAANAAEAAgAHAAUAAAAOAAEAAgAHAAUAAAAOAAAAAgAHAAUAAAAPAAAAAgAHAAUAAAAQAAAAAgAHAAUAAAAQAP//AgAHAAUAAAARAP//AgAHAAUAAAASAP//AgAHAAUAAAATAP//AgAHAAUAAAA=")
 tile_set = SubResource("TileSet_lbj6w")
 
-[node name="transistor" type="StaticBody2D" parent="." unique_id=676276331]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=7890290]
 
-[node name="Sprite2D" type="Sprite2D" parent="transistor" unique_id=2119463338]
-position = Vector2(185, 37)
-scale = Vector2(0.023375155, 0.025019499)
-texture = ExtResource("10_4c57u")
+[node name="NextItem" parent="CanvasLayer" unique_id=1093843214 instance=ExtResource("11_efxa6")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="transistor" unique_id=818455183]
-position = Vector2(185, 32.5)
-shape = SubResource("RectangleShape2D_72oj0")
+[node name="Capacitor" parent="." unique_id=627079968 instance=ExtResource("11_dg77c")]
+position = Vector2(174, 51)
+capacitance = 500
+voltage = 15
+
+[node name="endLabel" type="Label" parent="." unique_id=2087450868]
+visible = false
+offset_left = -230.0
+offset_top = -167.0
+offset_right = 450.0
+offset_bottom = -65.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "All components found"
+script = ExtResource("12_dg77c")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cgkqnah73ia1h"]
+
+[ext_resource type="Texture2D" uid="uid://nbte43uu50yy" path="res://transistor.png" id="1_su3d0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i42bs"]
+size = Vector2(20, 53)
+
+[node name="Transistor" type="Node2D" unique_id=1877883277]
+
+[node name="transistor" type="StaticBody2D" parent="." unique_id=1064207553]
+
+[node name="Sprite2D" type="Sprite2D" parent="transistor" unique_id=36737235]
+position = Vector2(185, 37)
+scale = Vector2(0.023375155, 0.025019499)
+texture = ExtResource("1_su3d0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transistor" unique_id=296530132]
+position = Vector2(185, 32.5)
+shape = SubResource("RectangleShape2D_i42bs")
