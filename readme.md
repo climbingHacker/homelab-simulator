@@ -1,0 +1,1 @@
+This is a simple Game which simulates the hassle of searching for the right parts in a homelab, when building Projects. Currently you can just collect a cap, more soon.
